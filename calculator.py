@@ -15,7 +15,7 @@ window = Tk() # creates the tk widget
 window.title("Calculadora")
 window.geometry("320x240") # window width and heigth 
 window.configure(background=grey_color)
-window.iconbitmap("C:/Users/feo3o/Desktop/projects/resources/Calculator.ico")
+window.iconbitmap("C:/Users/feo3o/Desktop/Calculator/TKinter-Calculator/resources/Calculator.ico")
 
 # ============== #
 
