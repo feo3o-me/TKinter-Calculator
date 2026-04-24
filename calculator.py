@@ -30,7 +30,7 @@ def center_window(window, width=WIDTH, height=HEIGHT):
 
 # ============== #
 
-frame_visor = Frame(window, width="240", height="25", bg=white_color, highlightbackground="blue", highlightthickness=1)
+frame_visor = Frame(window, width="240", height="28", bg=white_color, highlightbackground="black", highlightthickness=1, relief="raised")
 frame_visor.grid(padx=10, pady=5)
 
 # ============== #
@@ -40,20 +40,46 @@ frame_visor.grid(padx=10, pady=5)
 # MEMORY ADD = M+ ; adiciona o que está no visor com o que está na memória
 # MEMORY SUB = MS ; subtrai do valor da memória com o visor
 
-frame_mem = Frame(window, width=40, height=175, bg=grey_color, highlightbackground="blue", highlightthickness=1)
-frame_mem.place(x=15, y=40)
+frame_mem = Frame(window, width=40, height=175, bg=grey_color)
+frame_mem.place(x=10, y=40)
+
+memory_label = Label(frame_mem, bg=grey_color, highlightbackground=red_color, highlightthickness=1)
+memory_label.place(x=4, y=4, width=30, height=25)
+
+mc_btn = Button(frame_mem, bg=grey_color, text="MC", font=('Tahoma', 8))
+mc_btn.place(x=0, y=35, width=40, height=30)
+
+mr_btn = Button(frame_mem, bg=grey_color, text="MR", font=('Tahoma', 8))
+mr_btn.place(x=0, y=70, width=40, height=30)
+
+ms_btn = Button(frame_mem, bg=grey_color, text="MS", font=('Tahoma', 8))
+ms_btn.place(x=0, y=105, width=40, height=30)
+
+madd_btn = Button(frame_mem, bg=grey_color, text="M+", font=('Tahoma', 8))
+madd_btn.place(x=0, y=140, width=40, height=30)
 
 # ============== #
 # BTN FRAME
 
-frame_btn = Frame(window, width=170, height=40, bg=grey_color, highlightbackground="blue", highlightthickness=1)
-frame_btn.place(x=70, y=40)
+frame_btn = Frame(window, width=190, height=40, bg=grey_color)
+frame_btn.place(x=60, y=40)
+
+backspace_btn = Button(frame_btn, text="Backspace", font=('Tahoma', 8), bg=grey_color)
+backspace_btn.place(x=2, y=5, width=59, height=30)
+
+ce_btn = Button(frame_btn, text="CE", font=('Tahoma', 8), bg=grey_color)
+ce_btn.place(x=65, y=5, width=59, height=30)
+
+c_btn = Button(frame_btn, text="C", font=('Tahoma', 8), bg=grey_color)
+c_btn.place(x=127, y=5, width=59, height=30)
 
 # ============== #
 # NUMBERS FRAME
 
-frame_num = Frame(window, width=170, height=125, bg=grey_color, highlightbackground="blue", highlightthickness=1)
-frame_num.place(x=70, y=90)
+frame_num = Frame(window, width=190, height=135, bg=grey_color, highlightbackground="blue", highlightthickness=1)
+frame_num.place(x=60, y=80)
+
+# ============== #
 
 center_window(window, WIDTH, HEIGHT) # center window
 window.mainloop() # runs the main widget
