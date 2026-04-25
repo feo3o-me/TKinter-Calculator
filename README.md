@@ -2,4 +2,4 @@
 Project to learn TKinter and Python
 
 Trying to make my own WIN98 Calculator
-!(/preview.png)
+!(Tkinter-Calculator/preview.png)
