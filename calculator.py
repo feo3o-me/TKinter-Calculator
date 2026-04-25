@@ -46,23 +46,30 @@ label_visor.place(x=0, y=0, width=240, height=28)
 
 # ============== #
 # LOGIC
-
 hold_numbers = ''
 
 def visor_output(value):
     global hold_numbers
-
     hold_numbers = hold_numbers + str(value)
     btn_input.set(hold_numbers)
 
-def backspace():
-    btn_input.set(hold_numbers[:-1])
-    print(hold_numbers)
-
-def result(hold_numbers):
+def result():
+    global hold_numbers
     # DEBUG
     result = eval(hold_numbers)
+    btn_input.set(result)
     print(result)
+
+def clear():
+    global hold_numbers
+    hold_numbers = ""
+    btn_input.set(hold_numbers)
+    print(hold_numbers)
+
+def backspace():
+    global hold_numbers
+    hold_numbers = hold_numbers[:-1]
+    btn_input.set(hold_numbers)
 
 # ============== #
 
@@ -99,7 +106,7 @@ frame_btn.place(x=58, y=40)
 backspace_btn = Button(frame_btn, text="Backspace", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color, command = lambda: backspace())
 backspace_btn.place(x=2, y=5, width=59, height=30)
 
-ce_btn = Button(frame_btn, text="CE", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color)
+ce_btn = Button(frame_btn, text="CE", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color, command = lambda: clear())
 ce_btn.place(x=65, y=5, width=59, height=30)
 
 c_btn = Button(frame_btn, text="C", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color)
@@ -156,7 +163,7 @@ add_btn.place(x=50, y=105, width=40, height=28)
 float_btn = Button(frame_num, text=".", bg=grey_color, fg=red_color, activebackground=grey_color, command = lambda: visor_output("."))
 float_btn.place(x=95, y=105, width=40, height=28)
 
-result_btn = Button(frame_num, text="=", bg=grey_color, fg=red_color, activebackground=grey_color, command= lambda: result(hold_numbers))
+result_btn = Button(frame_num, text="=", bg=grey_color, fg=red_color, activebackground=grey_color, command= lambda: result())
 result_btn.place(x=140, y = 105, width=40, height=28)
 
 # ============== #
