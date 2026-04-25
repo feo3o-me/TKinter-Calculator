@@ -54,16 +54,30 @@ def visor_output(value):
 
 def result():
     global hold_numbers
-    # DEBUG
-    result = eval(hold_numbers)
-    btn_input.set(result)
-    print(result)
+
+    if hold_numbers == "":
+        pass
+    else:
+        result = eval(hold_numbers)
+        btn_input.set(result)
+        print(result)
 
 def clear():
     global hold_numbers
     hold_numbers = ""
     btn_input.set(hold_numbers)
     print(hold_numbers)
+
+def clear_entry():
+    global hold_numbers
+
+    for i, j in enumerate(hold_numbers[::-1]): # reads string from the last index to the first
+        if j in ["+", "-", "/", "*"]:
+            hold_numbers = hold_numbers[:-i-1]  # truncate string
+            btn_input.set(hold_numbers)
+            break
+        else:
+            btn_input.set(hold_numbers)
 
 def backspace():
     global hold_numbers
@@ -93,18 +107,25 @@ memory_value = 0
 
 def mem_on():
     isactive.set("M")
+    mc_btn.config(state="active")
+    mr_btn.config(state="active")
     mc_btn.config(fg=red_color)
     mr_btn.config(fg=red_color)
 
 def mem_off():
     isactive.set("")
+    mc_btn.config(state="disabled")
+    mr_btn.config(state="disabled")
     mc_btn.config(fg=idle_color)
     mr_btn.config(fg=idle_color)
 
 def memory_store():
     global memory_value
-    memory_value = eval(hold_numbers)
-    print(f"memory:{memory_value}")
+    if hold_numbers == "":
+        pass
+    else:
+        memory_value = eval(hold_numbers)
+        print(f"memory:{memory_value}")
 
 def memory_clear():
     global memory_value
@@ -121,10 +142,10 @@ def memory_recall():
     global memory_value
     btn_input.set(memory_value)
 
-mc_btn = Button(frame_mem, bg=grey_color, text="MC", font=('Tahoma', 8), fg=idle_color, activebackground=grey_color, command= lambda: (mem_off(), memory_clear()))
+mc_btn = Button(frame_mem, bg=grey_color, state="disabled", text="MC", font=('Tahoma', 8), fg=idle_color, activebackground=grey_color, command= lambda: (mem_off(), memory_clear()))
 mc_btn.place(x=0, y=35, width=40, height=30)
 
-mr_btn = Button(frame_mem, bg=grey_color, text="MR", font=('Tahoma', 8), fg=idle_color, activebackground=grey_color, command= lambda: (mem_on(), memory_recall()))
+mr_btn = Button(frame_mem, bg=grey_color, state="disabled", text="MR", font=('Tahoma', 8), fg=idle_color, activebackground=grey_color, command= lambda: (mem_on(), memory_recall()))
 mr_btn.place(x=0, y=70, width=40, height=30)
 
 ms_btn = Button(frame_mem, bg=grey_color, text="MS", font=('Tahoma', 8), fg=red_color, activebackground=grey_color, command= lambda: (mem_on(), memory_store()))
@@ -143,7 +164,7 @@ frame_btn.place(x=58, y=40)
 backspace_btn = Button(frame_btn, text="Backspace", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color, command = lambda: backspace())
 backspace_btn.place(x=2, y=5, width=59, height=30)
 
-ce_btn = Button(frame_btn, text="CE", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color)
+ce_btn = Button(frame_btn, text="CE", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color, command= lambda: clear_entry())
 ce_btn.place(x=65, y=5, width=59, height=30)
 
 c_btn = Button(frame_btn, text="C", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color, command = lambda: clear())
@@ -195,13 +216,13 @@ num_0 = Button(frame_num, text="0", bg=grey_color, fg=blue_color, activebackgrou
 num_0.place(x=5, y=105, width=40, height=28)
 
 add_btn = Button(frame_num, text="+", bg=grey_color, fg=red_color, activebackground=grey_color, command = lambda: visor_output("+"))
-add_btn.place(x=50, y=105, width=40, height=28)
+add_btn.place(x=140, y = 105, width=40, height=28)
 
 float_btn = Button(frame_num, text=".", bg=grey_color, fg=red_color, activebackground=grey_color, command = lambda: visor_output("."))
-float_btn.place(x=95, y=105, width=40, height=28)
+float_btn.place(x=50, y=105, width=40, height=28)
 
 result_btn = Button(frame_num, text="=", bg=grey_color, fg=red_color, activebackground=grey_color, command= lambda: result())
-result_btn.place(x=140, y = 105, width=40, height=28)
+result_btn.place(x=95, y=105, width=40, height=28) 
 
 # ============== #
 
