@@ -47,16 +47,16 @@ frame_mem.place(x=10, y=40)
 memory_label = Label(frame_mem, bg=grey_color, highlightbackground=black_color, highlightthickness=1)
 memory_label.place(x=4, y=4, width=30, height=25)
 
-mc_btn = Button(frame_mem, bg=grey_color, text="MC", font=('Tahoma', 8), fg=red_color)
+mc_btn = Button(frame_mem, bg=grey_color, text="MC", font=('Tahoma', 8), fg=red_color, activebackground=grey_color)
 mc_btn.place(x=0, y=35, width=40, height=30)
 
-mr_btn = Button(frame_mem, bg=grey_color, text="MR", font=('Tahoma', 8), fg=red_color)
+mr_btn = Button(frame_mem, bg=grey_color, text="MR", font=('Tahoma', 8), fg=red_color, activebackground=grey_color)
 mr_btn.place(x=0, y=70, width=40, height=30)
 
-ms_btn = Button(frame_mem, bg=grey_color, text="MS", font=('Tahoma', 8), fg=red_color)
+ms_btn = Button(frame_mem, bg=grey_color, text="MS", font=('Tahoma', 8), fg=red_color, activebackground=grey_color)
 ms_btn.place(x=0, y=105, width=40, height=30)
 
-madd_btn = Button(frame_mem, bg=grey_color, text="M+", font=('Tahoma', 8), fg=red_color)
+madd_btn = Button(frame_mem, bg=grey_color, text="M+", font=('Tahoma', 8), fg=red_color, activebackground=grey_color)
 madd_btn.place(x=0, y=140, width=40, height=30)
 
 # ============== #
@@ -65,13 +65,13 @@ madd_btn.place(x=0, y=140, width=40, height=30)
 frame_btn = Frame(window, width=190, height=40, bg=grey_color)
 frame_btn.place(x=58, y=40)
 
-backspace_btn = Button(frame_btn, text="Backspace", font=('Tahoma', 8), bg=grey_color, fg=red_color)
+backspace_btn = Button(frame_btn, text="Backspace", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color)
 backspace_btn.place(x=2, y=5, width=59, height=30)
 
-ce_btn = Button(frame_btn, text="CE", font=('Tahoma', 8), bg=grey_color, fg=red_color)
+ce_btn = Button(frame_btn, text="CE", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color)
 ce_btn.place(x=65, y=5, width=59, height=30)
 
-c_btn = Button(frame_btn, text="C", font=('Tahoma', 8), bg=grey_color, fg=red_color)
+c_btn = Button(frame_btn, text="C", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color)
 c_btn.place(x=127, y=5, width=59, height=30)
 
 # ============== #
@@ -80,52 +80,52 @@ c_btn.place(x=127, y=5, width=59, height=30)
 frame_num = Frame(window, width=190, height=135, bg=grey_color)
 frame_num.place(x=60, y=80)
 
-num_7 = Button(frame_num, text="7", bg=grey_color, fg=blue_color)
+num_7 = Button(frame_num, text="7", bg=grey_color, fg=blue_color, activebackground=grey_color)
 num_7.place(x=5, y=0, width=40, height=28)
 
-num_8 = Button(frame_num, text="8", bg=grey_color, fg=blue_color)
+num_8 = Button(frame_num, text="8", bg=grey_color, fg=blue_color, activebackground=grey_color)
 num_8.place(x=50, y=0, width=40, height=28)
 
-num_9 = Button(frame_num, text="9", bg=grey_color, fg=blue_color)
+num_9 = Button(frame_num, text="9", bg=grey_color, fg=blue_color, activebackground=grey_color)
 num_9.place(x=95, y=0, width=40, height=28)
 
-div_btn = Button(frame_num, text="÷", bg=grey_color, fg=red_color)
+div_btn = Button(frame_num, text="÷", bg=grey_color, fg=red_color, activebackground=grey_color)
 div_btn.place(x=140, width=40, height=28)
 
-num_4 = Button(frame_num, text="4", bg=grey_color, fg=blue_color)
+num_4 = Button(frame_num, text="4", bg=grey_color, fg=blue_color, activebackground=grey_color)
 num_4.place(x=5, y=35, width=40, height=28)
 
-num_5 = Button(frame_num, text="5", bg=grey_color, fg=blue_color)
+num_5 = Button(frame_num, text="5", bg=grey_color, fg=blue_color, activebackground=grey_color)
 num_5.place(x=50, y=35, width=40, height=28)
 
-num_6 = Button(frame_num, text="6", bg=grey_color, fg=blue_color)
+num_6 = Button(frame_num, text="6", bg=grey_color, fg=blue_color, activebackground=grey_color)
 num_6.place(x=95, y=35, width=40, height=28)
 
-mul_btn = Button(frame_num, text="X", bg=grey_color, fg=red_color)
+mul_btn = Button(frame_num, text="X", bg=grey_color, fg=red_color, activebackground=grey_color)
 mul_btn.place(x=140, y = 35, width=40, height=28)
 
-num_1 = Button(frame_num, text="1", bg=grey_color, fg=blue_color)
+num_1 = Button(frame_num, text="1", bg=grey_color, fg=blue_color, activebackground=grey_color)
 num_1.place(x=5, y=70, width=40, height=28)
 
-num_2 = Button(frame_num, text="2", bg=grey_color, fg=blue_color)
+num_2 = Button(frame_num, text="2", bg=grey_color, fg=blue_color, activebackground=grey_color)
 num_2.place(x=50, y=70, width=40, height=28)
 
-num_3 = Button(frame_num, text="3", bg=grey_color, fg=blue_color)
+num_3 = Button(frame_num, text="3", bg=grey_color, fg=blue_color, activebackground=grey_color)
 num_3.place(x=95, y=70, width=40, height=28)
 
-sub_btn = Button(frame_num, text="-", bg=grey_color, fg=red_color)
+sub_btn = Button(frame_num, text="-", bg=grey_color, fg=red_color, activebackground=grey_color)
 sub_btn.place(x=140, y = 70, width=40, height=28)
 
-num_0 = Button(frame_num, text="0", bg=grey_color, fg=blue_color)
+num_0 = Button(frame_num, text="0", bg=grey_color, fg=blue_color, activebackground=grey_color)
 num_0.place(x=5, y=105, width=40, height=28)
 
-negative_btn = Button(frame_num, text="±", bg=grey_color, fg=red_color)
+negative_btn = Button(frame_num, text="±", bg=grey_color, fg=red_color, activebackground=grey_color)
 negative_btn.place(x=50, y=105, width=40, height=28)
 
-float_btn = Button(frame_num, text=".", bg=grey_color, fg=red_color)
+float_btn = Button(frame_num, text=".", bg=grey_color, fg=red_color, activebackground=grey_color)
 float_btn.place(x=95, y=105, width=40, height=28)
 
-result_btn = Button(frame_num, text="=", bg=grey_color, fg=red_color)
+result_btn = Button(frame_num, text="=", bg=grey_color, fg=red_color, activebackground=grey_color)
 result_btn.place(x=140, y = 105, width=40, height=28)
 
 # ============== #
