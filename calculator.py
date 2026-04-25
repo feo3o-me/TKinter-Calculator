@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 
-# FALTA ADICIONAR O BOTÃO DE ADD (NÃO SEI COMO ESQUECI DISSO) E AJUSTAR O LAYOUT PARA ALINHAR OS NOVOS ITENS
+# precisa adicionar a lógica do CLEAR ENTRY
 
 # ============== #
 #   constants
@@ -39,7 +39,6 @@ frame_visor.grid(padx=10, pady=5)
 
 # HOLD INPUT
 btn_input = StringVar()
-mem_input = StringVar()
 
 label_visor = Label(frame_visor, bg=white_color, textvariable=btn_input, relief=SUNKEN, anchor="e", padx=5)
 label_visor.place(x=0, y=0, width=240, height=28)
@@ -75,27 +74,65 @@ def backspace():
 
 # MEMORY FRAME
 # MEMORY CLEAR = MC ; clears memory value
-# MEMORY RECALL = MR ; returns memory value
-# MEMORY ADD = M+ ; add the memory value to the variable value
-# MEMORY SUB = MS ; sub the memory value to the variable value
+# MEMORY RECALL = MR ; returns memory value to the visor
+# MEMORY ADD = M+ ; add the visor value to the memory
+# MEMORY STORE = MS ; moves the visor value to the memory
 
 frame_mem = Frame(window, width=40, height=175, bg=grey_color)
 frame_mem.place(x=10, y=40)
 
-memory_label = Label(frame_mem, bg=grey_color, relief=SUNKEN)
+isactive = StringVar()
+
+memory_label = Label(frame_mem, bg=grey_color, relief=SUNKEN, textvariable=isactive, fg=black_color)
 memory_label.place(x=4, y=4, width=30, height=25)
 
-mc_btn = Button(frame_mem, bg=grey_color, text="MC", font=('Tahoma', 8), fg=idle_color, activebackground=grey_color)
+# ============== #
+# MEM LOGIC
+
+memory_value = 0
+
+def mem_on():
+    isactive.set("M")
+    mc_btn.config(fg=red_color)
+    mr_btn.config(fg=red_color)
+
+def mem_off():
+    isactive.set("")
+    mc_btn.config(fg=idle_color)
+    mr_btn.config(fg=idle_color)
+
+def memory_store():
+    global memory_value
+    memory_value = eval(hold_numbers)
+    print(f"memory:{memory_value}")
+
+def memory_clear():
+    global memory_value
+    memory_value = ""
+    print(f"memory:{memory_value}")
+
+def memory_add():
+    global memory_value
+    a = eval(hold_numbers)
+    memory_value = memory_value + a
+    print(f"memory:{memory_value}")
+
+def memory_recall():
+    global memory_value
+    btn_input.set(memory_value)
+
+mc_btn = Button(frame_mem, bg=grey_color, text="MC", font=('Tahoma', 8), fg=idle_color, activebackground=grey_color, command= lambda: (mem_off(), memory_clear()))
 mc_btn.place(x=0, y=35, width=40, height=30)
 
-mr_btn = Button(frame_mem, bg=grey_color, text="MR", font=('Tahoma', 8), fg=idle_color, activebackground=grey_color)
+mr_btn = Button(frame_mem, bg=grey_color, text="MR", font=('Tahoma', 8), fg=idle_color, activebackground=grey_color, command= lambda: (mem_on(), memory_recall()))
 mr_btn.place(x=0, y=70, width=40, height=30)
 
-ms_btn = Button(frame_mem, bg=grey_color, text="MS", font=('Tahoma', 8), fg=red_color, activebackground=grey_color)
+ms_btn = Button(frame_mem, bg=grey_color, text="MS", font=('Tahoma', 8), fg=red_color, activebackground=grey_color, command= lambda: (mem_on(), memory_store()))
 ms_btn.place(x=0, y=105, width=40, height=30)
 
-madd_btn = Button(frame_mem, bg=grey_color, text="M+", font=('Tahoma', 8), fg=red_color, activebackground=grey_color)
+madd_btn = Button(frame_mem, bg=grey_color, text="M+", font=('Tahoma', 8), fg=red_color, activebackground=grey_color, command= lambda: (mem_on(), memory_add()))
 madd_btn.place(x=0, y=140, width=40, height=30)
+
 
 # ============== #
 # BTN FRAME
@@ -106,10 +143,10 @@ frame_btn.place(x=58, y=40)
 backspace_btn = Button(frame_btn, text="Backspace", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color, command = lambda: backspace())
 backspace_btn.place(x=2, y=5, width=59, height=30)
 
-ce_btn = Button(frame_btn, text="CE", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color, command = lambda: clear())
+ce_btn = Button(frame_btn, text="CE", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color)
 ce_btn.place(x=65, y=5, width=59, height=30)
 
-c_btn = Button(frame_btn, text="C", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color)
+c_btn = Button(frame_btn, text="C", font=('Tahoma', 8), bg=grey_color, fg=red_color, activebackground=grey_color, command = lambda: clear())
 c_btn.place(x=127, y=5, width=59, height=30)
 
 # ============== #
